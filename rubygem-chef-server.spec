@@ -19,10 +19,10 @@ Source4: config.rb
 Source5: setup-chef-server.sh
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: rubygems
-Requires: rubygem(chef-server-api) = 0.10.0
-Requires: rubygem(chef-server-webui) = 0.10.0
-Requires: rubygem(chef-expander) = 0.10.0
-Requires: rubygem(chef-solr) = 0.10.0
+Requires: rubygem(chef-server-api) = %{version}
+Requires: rubygem(chef-server-webui) = %{version}
+Requires: rubygem(chef-expander) = %{version}
+Requires: rubygem(chef-solr) = %{version}
 Requires: rabbitmq-server
 Requires: java-1.6.0-openjdk-devel
 Requires: java-1.6.0-openjdk
