@@ -7,7 +7,7 @@
 Summary: A meta-gem to install all server components of the Chef configuration management system
 Name: rubygem-%{gemname}
 Version: 0.10.2
-Release: 3%{?dist}%{?buildstamp}
+Release: 4%{?buildstamp}%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://wiki.opscode.com/display/chef
@@ -119,6 +119,9 @@ fi
 
 
 %changelog
+* Mon Jul 25 2011 Sergio Rubio <rubiojr@frameos.org> - 0.10.2-4
+- updated
+
 * Mon Jul 25 2011 Sergio Rubio <rubiojr@frameos.org> - 0.10.2-3
 - rubygem-chef-server.spec
 
