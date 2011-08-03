@@ -6,7 +6,7 @@
 
 Summary: A meta-gem to install all server components of the Chef configuration management system
 Name: rubygem-%{gemname}
-Version: 0.10.4.rc.2
+Version: 0.10.4.rc.4
 Release: 1%{?buildstamp}%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
