@@ -2,16 +2,17 @@
 %define ruby_sitelib %(ruby -rrbconfig -e "puts Config::CONFIG['sitelibdir']")
 %define gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %define gemname chef-server
-%define geminstdir %{gemdir}/gems/%{gemname}-%{version}
+%define prerelease .rc.2
+%define geminstdir %{gemdir}/gems/%{gemname}-%{version}%{?prerelease}
 
 Summary: A meta-gem to install all server components of the Chef configuration management system
 Name: rubygem-%{gemname}
-Version: 0.10.4
-Release: 1%{?buildstamp}%{?dist}
+Version: 0.10.6
+Release: 0rc2%{?buildstamp}%{?dist}
 Group: Development/Languages
 License: GPLv2+ or Ruby
 URL: http://wiki.opscode.com/display/chef
-Source0: http://rubygems.org/downloads/%{gemname}-%{version}.gem
+Source0: http://rubygems.org/downloads/%{gemname}-%{version}%{?prerelease}.gem
 Source1: chef-server.init
 Source2: chef-server.sysconfig
 Source3: chef-server.logrotate
@@ -19,10 +20,10 @@ Source4: config.rb
 Source5: setup-chef-server.sh
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: rubygems
-Requires: rubygem(chef-server-api) = %{version}
-Requires: rubygem(chef-server-webui) = %{version}
-Requires: rubygem(chef-expander) = %{version}
-Requires: rubygem(chef-solr) = %{version}
+Requires: rubygem(chef-server-api) = %{version}%{?prerelease}
+Requires: rubygem(chef-server-webui) = %{version}%{?prerelease}
+Requires: rubygem(chef-expander) = %{version}%{?prerelease}
+Requires: rubygem(chef-solr) = %{version}%{?prerelease}
 Requires: rabbitmq-server
 Requires: java-1.6.0-openjdk-devel
 Requires: java-1.6.0-openjdk
@@ -39,7 +40,7 @@ Requires(postun): initscripts
 
 BuildRequires: rubygems
 BuildArch: noarch
-Provides: rubygem(%{gemname}) = %{version}
+Provides: rubygem(%{gemname}) = %{version}%{?prerelease}
 
 %description
 A meta-gem to install all server components of the Chef configuration
@@ -104,12 +105,12 @@ fi
 
 %files
 %defattr(-, root, root, -)
-%{gemdir}/gems/%{gemname}-%{version}/
-%doc %{gemdir}/doc/%{gemname}-%{version}
+%{gemdir}/gems/%{gemname}-%{version}%{?prerelease}/
+%doc %{gemdir}/doc/%{gemname}-%{version}%{?prerelease}
 %doc %{geminstdir}/README.rdoc
 %doc %{geminstdir}/LICENSE
-%{gemdir}/cache/%{gemname}-%{version}.gem
-%{gemdir}/specifications/%{gemname}-%{version}.gemspec
+%{gemdir}/cache/%{gemname}-%{version}%{?prerelease}.gem
+%{gemdir}/specifications/%{gemname}-%{version}%{?prerelease}.gemspec
 %config(noreplace) %{_sysconfdir}/sysconfig/chef-server
 %config(noreplace) %{_sysconfdir}/chef/server.rb
 %config(noreplace) %{_sysconfdir}/logrotate.d/chef-server
