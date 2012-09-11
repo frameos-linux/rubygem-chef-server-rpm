@@ -123,6 +123,9 @@ fi
 * Tue Sep 11 2012 Sean P. Kane <spkane00@gmail.com> - 10.14.2-1
 - bumped version 10.14.2
 
+* Mon Sep 10 2012 Sergio Rubio <rubiojr@frameos.org> - 10.14.0-1
+- bumped version 10.14.0
+
 * Wed Aug 31 2012 Sean P. Kane <spkane00@gmail.com> - 10.12.0-1
 - bumped version 10.12.0
 
